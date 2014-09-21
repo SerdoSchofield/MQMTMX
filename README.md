@@ -7,7 +7,7 @@ simply download these files to your computer then,<br>
 3) navigate to the contents of this folder (if you were to type "dir" you should see the "bin" and "lib" folders)<br>
 4) type in terminal<br>
 <blockquote>
-  -$ perl -Ilib bin/scanAll.pl <the directory of the TMX files>
+  -$ perl -Ilib bin/scanAll.pl 'the directory of the TMX files'
 </blockquote>
 
 EXAMPLE:
