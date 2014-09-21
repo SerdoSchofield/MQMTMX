@@ -13,4 +13,5 @@ simply download these files to your computer then,
 EXAMPLE:
 <blockquote>
   -$ perl -Ilib bin/scanAll.pl ../Desktop/"My TMX files are in this Folder"
+</blockquote
 5) if all goes well, the converted .txt files will be in a folder within your TMX directory called "Converted"!
