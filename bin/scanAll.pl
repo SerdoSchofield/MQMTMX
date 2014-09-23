@@ -7,14 +7,23 @@ use feature 'say';
 use MQMTMX::converter;
 use utf8;
 my $directory = $ARGV[0];
-
+my $div;
 opendir (DIR, $directory) or die $!;
+
+if (-e ".\\$directory")
+{
+	$div = "\\";
+}
+else
+{
+	$div = "/";
+}
 
 while (my $file = readdir(DIR))
 {
 	if ($file =~ /\.tmx/)
 	{
-		my $path = "$directory\\$file";
+		my $path = "$directory$div$file";
 		open my $handle, '<', $path or die $!;
 		MQMTMX::converter->convert($handle, $path);
 	}
@@ -22,13 +31,13 @@ while (my $file = readdir(DIR))
 
 closedir DIR;
 
-mkdir("$directory\\Converted");
+mkdir($directory.$div."Converted");
 
 opendir (DIR, $directory) or die $!;
 while (my $file = readdir(DIR))
 {
 	if ($file =~ /\.txt/)
 	{
-		move("$directory\\$file","$directory\\Converted\\$file") or die "Copy failed: $!";
+		move("$directory$div$file",$directory.$div."Converted".$div.$file) or die "Copy failed: $!";
 	}
 }
